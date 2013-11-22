@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NajdiSMS</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="uporabnik">Uporabniško ime</string>
+    <string name="geslo">Geslo</string>
+    <string name="sporocilo">Sporočilo</string>
+    <string name="prejemniki">Prejemniki</string>
+    <string name="poslji">Pošlji</string>
+    <string name="nastavitve">Nastavitve</string>
+    <string name="zamenjaj">Zamenjaj uporabnika</string>
+    <string name="PHP_backend">PHP backend</string>
+    <string name="version_check">Preveri posodobitve</string>
+    <string name="version">0.2</string>
+    <string name="verzija">&quot;Verzija: &quot;</string>
+    <string name="shrani">Shrani</string>
+    <string name="PHP_url">http://w3.lokacijainfo.si:8085/sms/testnajdi.php</string>
+    <string name="vredu">Vredu</string>
+
+</resources>
