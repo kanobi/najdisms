@@ -18,5 +18,6 @@
     <string name="shrani">Shrani</string>
     <string name="PHP_url">http://w3.lokacijainfo.si:8085/sms/testnajdi.php</string>
     <string name="vredu">Vredu</string>
+    <string name="stevilo_znakov_value">0/160</string>
 
 </resources>

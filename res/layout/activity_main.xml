@@ -45,4 +45,15 @@
         android:text="@string/poslji"
         android:onClick="poslji" />
 
+    <TextView
+        android:id="@+id/stevilo_znakov_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/sporocilo"
+        android:layout_alignTop="@+id/sporocilo"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/stevilo_znakov_value"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 </RelativeLayout>

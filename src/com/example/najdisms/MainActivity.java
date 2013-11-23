@@ -5,12 +5,16 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -21,12 +25,40 @@ public class MainActivity extends Activity {
 	public static String php_url = "";
 	public static String version = "0.2";
 	
-	
+	private TextView st_znakov = null;
+	private EditText sporocilo = null;
+	private EditText prejemniki = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		prejemniki = (EditText) findViewById(R.id.prejemniki);
+        sporocilo = (EditText) findViewById(R.id.sporocilo);
+        st_znakov = (TextView) findViewById(R.id.stevilo_znakov_text);
+		
+	    sporocilo.addTextChangedListener(new TextWatcher() {
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {
+				}
+				
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count,
+						int after) {
+				}
+				
+				@Override
+				public void afterTextChanged(Editable s) {
+					st_znakov.setText(s.length()+"/160");
+					if (s.length() > 160){
+						st_znakov.setTextColor(Color.RED);
+					}else{
+						st_znakov.setTextColor(Color.BLACK);
+					}
+				}
+			});
+	    
 		SharedPreferences settings = getSharedPreferences(nastavitve, 0);
 		boolean firstrun = settings.getBoolean("firstrun", true);
 		php_url = settings.getString("php_url", "http://w3.lokacijainfo.si:8085/sms/testnajdi.php");
@@ -95,10 +127,11 @@ public class MainActivity extends Activity {
 	    }
 	}
 	
+	
+	
 	public void poslji(View v) {
 		SharedPreferences settings = getSharedPreferences(nastavitve, 0);
-        EditText prejemniki = (EditText) findViewById(R.id.prejemniki);
-        EditText sporocilo = (EditText) findViewById(R.id.sporocilo);
+		
         String phone = prejemniki.getText().toString();
         String msg = sporocilo.getText().toString();
         String user = settings.getString("user", "");
